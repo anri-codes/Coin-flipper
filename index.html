@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coin Flipper PWA</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    .coin {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      background-color: #ffd700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #333;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      margin-bottom: 30px;
+      transition: transform 0.5s ease-in-out;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    button:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Coin Flipper</h1>
+  <div class="coin" id="coin">Heads</div>
+  <button onclick="flipCoin()">Flip Coin</button>
+
+  <script>
+    function flipCoin() {
+      const coin = document.getElementById('coin');
+      coin.style.transform = 'rotateY(720deg)';
+      setTimeout(() => {
+        const result = Math.random() < 0.5 ? 'Heads' : 'Tails';
+        coin.textContent = result;
+        coin.style.transform = 'rotateY(0deg)';
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
